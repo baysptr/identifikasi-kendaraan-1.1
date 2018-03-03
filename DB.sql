@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
 -- Host: localhost    Database: web_identifikasi
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -81,7 +81,7 @@ CREATE TABLE `histories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +90,7 @@ CREATE TABLE `histories` (
 
 LOCK TABLES `histories` WRITE;
 /*!40000 ALTER TABLE `histories` DISABLE KEYS */;
-INSERT INTO `histories` VALUES (1,'1','L 6125 QZ','2018-01-24 13:41:20','2018-01-24 06:41:20','2018-01-24 06:41:20'),(2,'1','L 6125 QZ','2018-01-24 13:43:05','2018-01-24 06:43:05','2018-01-24 06:43:05');
+INSERT INTO `histories` VALUES (1,'1','L 6125 QZ','2018-01-24 13:41:20','2018-01-24 06:41:20','2018-01-24 06:41:20'),(2,'1','L 6125 QZ','2018-01-24 13:43:05','2018-01-24 06:43:05','2018-01-24 06:43:05'),(3,'1','L 6125 QZ','2018-03-03 08:18:04','2018-03-03 01:18:04','2018-03-03 01:18:04');
 /*!40000 ALTER TABLE `histories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-24 20:58:49
+-- Dump completed on 2018-03-03 16:00:02

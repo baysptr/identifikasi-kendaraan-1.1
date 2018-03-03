@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+header('Access-Control-Allow-Origin: http://localhost');
+
 Route::get("pengguna", "PenggunaController@index");
 Route::get("pengguna/{pengguna}", "PenggunaController@show");
 Route::post("pengguna", "PenggunaController@store");

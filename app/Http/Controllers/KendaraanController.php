@@ -14,7 +14,7 @@ class KendaraanController extends Controller {
 
     public function show(Kendaraan $kendaraan) {
         $status = $this->retrovitResponse("success", "success", 200, false);
-        return response()->json(array("status" => $status, "data" => $kendaraan));
+        return response()->json(array("status" => $status, "data" => Kendaraan::where("id_pengguna", $kendaraan->id_pengguna)->first()));
     }
 
     public function store(Request $request) {

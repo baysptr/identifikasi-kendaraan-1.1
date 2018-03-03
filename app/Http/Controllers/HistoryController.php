@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\History;
+use Illuminate\Support\Facades\DB;
 
 class HistoryController extends Controller {
 
@@ -13,13 +14,19 @@ class HistoryController extends Controller {
     }
 
     public function lastUpdate() {
+        $data = DB::table('histories')
+            ->join('kendaraans', 'kendaraans.id', '=', 'histories.id_kendaraan')
+            ->join('penggunas', 'penggunas.id', '=', 'kendaraans.id_pengguna')
+            ->select('histories.*', 'kendaraans.id_pengguna', 'penggunas.nama')
+            ->orderBy('histories.tgl_update', 'desc')
+            ->first();
         $status = $this->retrovitResponse("success", "success", 200, false);
-        return response()->json(array("status" => $status, "data" => History::orderBy("tgl_update", "desc")->first()), 200);
+        return response()->json(array("status" => $status, "data" => $data), 200);
     }
 
     public function show(History $history) {
         $status = $this->retrovitResponse("success", "success", 200, false);
-        return response()->json(array("status" => $status, "data" => $history));
+        return response()->json(array("status" => $status, "data" => History::where("id_kendaraan", $history->id_kendaraan)->get()));
     }
 
     public function store(Request $request) {
