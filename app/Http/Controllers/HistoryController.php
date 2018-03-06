@@ -9,8 +9,15 @@ use Illuminate\Support\Facades\DB;
 class HistoryController extends Controller {
 
     public function index() {
+        $data = DB::table('histories')
+            ->join('kendaraans', 'kendaraans.id', '=', 'histories.id_kendaraan')
+            ->join('penggunas', 'penggunas.id', '=', 'kendaraans.id_pengguna')
+            ->select('histories.*', 'kendaraans.id_pengguna', 'kendaraans.merk_kendaraan', 'penggunas.nama')
+            ->orderBy('histories.tgl_update', 'desc')
+            ->get();
+
         $status = $this->retrovitResponse("success", "success", 200, false);
-        return response()->json(array("status" => $status, "data" => History::orderBy("tgl_update", "desc")->get()), 200);
+        return response()->json(array("status" => $status, "data" => $data), 200);
     }
 
     public function lastUpdate() {
